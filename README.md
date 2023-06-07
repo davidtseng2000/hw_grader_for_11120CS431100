@@ -11,6 +11,7 @@ After downloading the students' assignments from the learning platform, create a
 在從學習平台下載完學生的作業後，開一個 HW 資料夾，放置**學生的作業**（每個學生的作業都是一個資料夾，裡面放程式和時間複雜度作圖 plot.png）、**data 資料夾**（裡面放 test cases 和 test cases 的解答）、編譯學生的程式用的 **makefile**、**File Classifier** 和 **Automatic Grading**，為了標記哪些同學有交作業方便後面登記成績沒有漏掉，將登記成績的 **excel** 檔也放到 HW 資料夾中。
 
 ↓ HW 資料夾內容示意圖：
+
 ![HW 資料夾內容示意圖](https://github.com/davidtseng2000/hw_grader_for_11120CS431100/blob/main/pic/HW_file_all.png)
 
 ---
@@ -27,12 +28,19 @@ When running "File Classifier.py," it performs the following actions:
 3. 更新步驟一中準備的成績登記表 excel 檔並儲存成 "updated.xlsx"，若該同學有繳交作業，則學號部分會塗成淺藍色。
 
 ↓ File Classifier 使用畫面：
+
 ![File Classifier 使用畫面](https://github.com/davidtseng2000/hw_grader_for_11120CS431100/blob/main/pic/classifier.png)
+
 ↓ File Classifier 整理後的資料夾：
-![File Classifier 整理後的資料夾](https://github.com/davidtseng2000/hw_grader_for_11120CS431100/blob/main/pic/after_classifier.png)
+
+![File Classifier 整理後的資料夾](https://github.com/davidtseng2000/hw_grader_for_11120CS431100/blob/main/pic/after_classifier.png
+
 ↓ 原 excel 檔內容：
+
 ![原 excel 檔內容](https://github.com/davidtseng2000/hw_grader_for_11120CS431100/blob/main/pic/excel.png)
+
 ↓ excel_updated 內容：
+
 ![excel_updated 內容](https://github.com/davidtseng2000/hw_grader_for_11120CS431100/blob/main/pic/excel_updated.png)
 
 ---
@@ -47,6 +55,9 @@ To run "Automatic Grading.py," please note that there are some prerequisites:
 2. 接著執行 Automatic Grading.py，開始等它自動改完作業！
 
 ↓ Automatic Grading 前置作業：
+
 ![Automatic Grading 前置作業](https://github.com/davidtseng2000/hw_grader_for_11120CS431100/blob/main/pic/before_autograde.png)
+
 ↓ Automatic Grading 使用畫面：
+
 ![Automatic Grading 使用畫面](https://github.com/davidtseng2000/hw_grader_for_11120CS431100/blob/main/pic/auto_grade.png)
