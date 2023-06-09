@@ -43,48 +43,55 @@ class TestProgram(unittest.TestCase):
                         with open(test_file_path, 'r') as f:
                             input_data = f.read()
                         
-                        # 將測試資料代入同學的程式檢查
-                        if program_file.endswith(".py"):
-                            import_name = os.path.splitext(program_file)[0]
-                            program = __import__(import_name)
-                            command = ['python', program_file]
-                        elif program_file.endswith(".cpp"):
-                            # 使用 C++ 編譯並執行程式
-                            subprocess.run(['g++', program_file, '-o', 'program'])
-                            command = ['./program']
-                        else:
-                            raise Exception('不支援的程式檔案格式')
-                        
-                        # 執行程式，將測資代入並取得輸出結果
-                        process = subprocess.Popen(
-                            command,
-                            stdin=subprocess.PIPE,
-                            stdout=subprocess.PIPE,
-                            stderr=subprocess.PIPE,
-                            text=True
-                        )
-                        output, _ = process.communicate(input=input_data)
-                        
-                        # 將測資檔名轉換為測試案例編號（例如：1.txt -> Case 1）
-                        case_number = os.path.splitext(file_name)[0]
-                        case_name = f"Case {case_number}"
-                        
-                        # 比對輸出結果是否符合預期
-                        with self.subTest(case_name=case_name):
-                            expected_output_file = os.path.join(DataPath, f"{case_number}.out")
-                            print(expected_output_file)
-                            with open(expected_output_file, 'r') as f:
-                                expected_output = f.read().strip()
-                            # 將預期輸出與實際輸出進行比對
-                            print(f"expected output: {int(expected_output)}, output: {int(output.strip())}")
-                            if expected_output in output.strip():
-                                self.assertEqual(expected_output, output.strip())
-                                self.score += 25
-                                print(f"✓ 通過 {case_name}")
+                        try:
+                            # 將測試資料代入同學的程式檢查
+                            if program_file.endswith(".py"):
+                                import_name = os.path.splitext(program_file)[0]
+                                program = __import__(import_name)
+                                command = ['python', program_file]
+                            elif program_file.endswith(".cpp"):
+                                # 使用 C++ 編譯並執行程式
+                                subprocess.run(['g++', program_file, '-o', 'program'])
+                                command = ['./program']
                             else:
-                                print(f"✕ 未通過 {case_name}")
+                                raise Exception('不支援的程式檔案格式')
+                            
+                            # 執行程式，將測資代入並取得輸出結果
+                            process = subprocess.Popen(
+                                command,
+                                stdin=subprocess.PIPE,
+                                stdout=subprocess.PIPE,
+                                stderr=subprocess.PIPE,
+                                text=True
+                            )
+                            output, _ = process.communicate(input=input_data)
+                            
+                            # 將測資檔名轉換為測試案例編號（例如：1.txt -> Case 1）
+                            case_number = os.path.splitext(file_name)[0]
+                            case_name = f"Case {case_number}"
+                            
+                            # 比對輸出結果是否符合預期
+                            with self.subTest(case_name=case_name):
+                                expected_output_file = os.path.join(DataPath, f"{case_number}.out")
+                                # print(expected_output_file)
+                                with open(expected_output_file, 'r') as f:
+                                    expected_output = f.read().strip()
+                                # 將預期輸出與實際輸出進行比對
+                                print(f"expected output: {int(expected_output)}, output: {int(output.strip())}")
+                                if expected_output in output.strip():
+                                    self.assertEqual(expected_output, output.strip())
+                                    self.score += 25
+                                    print(f"✓ 通過 {case_name}")
+                                else:
+                                    print(f"✕ 未通過 {case_name}")
+                        except:
+                            print(Fore.RED + "讀取/編譯檔案時發生錯誤!")
+                            print(Style.RESET_ALL)
 
-                print(Fore.GREEN + f"score: {self.score}")
+                if (self.score == 0):
+                    print(Fore.RED + f"score: {self.score}")
+                else:
+                    print(Fore.GREEN + f"score: {self.score}")
                 print(Style.RESET_ALL)
 
 if __name__ == '__main__':

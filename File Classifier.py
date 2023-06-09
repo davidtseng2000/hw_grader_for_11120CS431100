@@ -34,21 +34,25 @@ print(Fore.WHITE + f"所有繳交名單:\n{all_submit}")
 print(f"共 {len(all_submit)} 人\n")
 
 # (1-2) 在 excel 表格中做記號
-excel_file = "計算方法設計 成績.xlsx"
-wb = openpyxl.load_workbook(excel_file)
-excel_sheet = "作業5"
-target_excel_sheet = wb[excel_sheet]
-# 學號是第一行
-student_id_column_index = 1
-# 有交作業者用淺藍色標示
-fill = PatternFill(start_color="ADD8E6", end_color="ADD8E6", fill_type="solid")
-for column in target_excel_sheet.iter_cols(min_row=2, max_row=target_excel_sheet.max_row, min_col=student_id_column_index, max_col=student_id_column_index):
-    for cell in column:
-        student_id = str(cell.value)
-        if student_id in all_submit:
-            cell.fill = fill
-# 保存修改后的 Excel 文件
-wb.save("計算方法設計 成績_updated.xlsx")
+try:
+  excel_file = "計算方法設計 成績.xlsx"
+  wb = openpyxl.load_workbook(excel_file)
+  excel_sheet = "作業5"
+  target_excel_sheet = wb[excel_sheet]
+  # 學號是第一行
+  student_id_column_index = 1
+  # 有交作業者用淺藍色標示
+  fill = PatternFill(start_color="ADD8E6", end_color="ADD8E6", fill_type="solid")
+  for column in target_excel_sheet.iter_cols(min_row=2, max_row=target_excel_sheet.max_row, min_col=student_id_column_index, max_col=student_id_column_index):
+      for cell in column:
+          student_id = str(cell.value)
+          if student_id in all_submit:
+              cell.fill = fill
+  # 保存修改后的 Excel 文件
+  wb.save("計算方法設計 成績_updated.xlsx")
+
+except:
+  print("未讀取到 excel 檔案")
 
 ##################################
 # Step2: 列出檔名/格式可能有誤的名單
