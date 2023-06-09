@@ -6,9 +6,9 @@ When I was a teaching assistant in college, the professor assigned two programmi
 
 # How to use?
 ## Step1: Folder Setting
-After downloading the students' assignments from the learning platform, create an "HW" folder that includes the following items: the students' homeworks, a "data" folder (containing test cases and their solutions), a makefile for compiling the students' programs, the "File Classifier" program, and the "Automatic Grading Program". To keep track of which students have submitted their assignments and to ensure that no grades are missed during the recording process, also place the grade recording Excel file in the "HW" folder.
+After downloading the students' assignments from the learning platform, create an "HW" folder that includes the following items: the students' homeworks, a "data" folder (containing test cases and their solutions), the "File Classifier" program, and the "Automatic Grading Program". To keep track of which students have submitted their assignments and to ensure that no grades are missed during the recording process, also place the grade recording Excel file in the "HW" folder.
 
-在從學習平台下載完學生的作業後，開一個 HW 資料夾，放置**學生的作業**（每個學生的作業都是一個資料夾，裡面放程式和時間複雜度作圖 plot.png）、**data 資料夾**（裡面放 test cases 和 test cases 的解答）、編譯學生的程式用的 **makefile**、**File Classifier** 和 **Automatic Grading**，為了標記哪些同學有交作業方便後面登記成績沒有漏掉，將登記成績的 **excel** 檔也放到 HW 資料夾中。
+在從學習平台下載完學生的作業後，開一個 HW 資料夾，放置**學生的作業**（每個學生的作業都是一個資料夾，裡面放程式和時間複雜度作圖 plot.png）、**data 資料夾**（裡面放 test cases 和 test cases 的解答）、**File Classifier** 和 **Automatic Grading**，為了標記哪些同學有交作業方便後面登記成績沒有漏掉，將登記成績的 **excel** 檔也放到 HW 資料夾中。
 
 ↓ HW 資料夾內容示意圖：
 
@@ -47,11 +47,11 @@ When running "File Classifier.py," it performs the following actions:
 
 ## Step3: **Automatic Grading.py**
 To run "Automatic Grading.py," please note that there are some prerequisites:
-1. Place "Automatic Grading.py," the "data" folder, and the "makefile" inside the folder of the assignment you want to grade (.cpp, .c, or .py files).
+1. Place "Automatic Grading.py," the "data" folder inside the folder of the assignment you want to grade (.cpp, .c, or .py files).
 2. Then execute "Automatic Grading.py" and wait for it to automatically grade the assignments.
 
 執行 Automatic Grading.py ，但注意執行前需要一些前置作業：
-1. 將 Automatic Grading.py、data 資料夾和 makefile 丟到要改的作業的資料夾中 (.cpp .c 或 .py)
+1. 將 Automatic Grading.py、data 資料夾丟到要改的作業的資料夾中 (.cpp .c 或 .py)
 2. 接著執行 Automatic Grading.py，開始等它自動改完作業！
 
 ↓ Automatic Grading 前置作業（範例將 Step3-1 提到的檔案都丟到 ".cpp資料夾" 中）：
